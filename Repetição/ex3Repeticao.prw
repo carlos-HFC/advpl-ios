@@ -35,6 +35,7 @@ User Function novoCalc()
         EndDo
 
         nMedia := (nAval1 + nAval2) / 2
-        msginfo(i18n("A média do(a) #1 foi #2", {cNome, nMedia}))        
+        msginfo(i18n("A média do(a) #1 foi #2", {cNome, nMedia}))
+        cAsk := FWInputBox("Deseja realizar um novo cálculo? (S/N)")     
     EndDo
 Return
