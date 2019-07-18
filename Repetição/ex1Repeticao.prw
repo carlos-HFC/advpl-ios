@@ -1,6 +1,6 @@
 #include "Protheus.ch"
 
-//Digitar dois valores, onde não pode ser zero
+//Digitar dois valores, onde não podem ser zero
 User Function infZero()
     local nVal1 := Val(FWInputBox("Digite o primeiro valor"))
     local nVal2 := Val(FWInputBox("Digite o segundo valor"))

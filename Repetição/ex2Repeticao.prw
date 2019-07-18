@@ -1,0 +1,22 @@
+#include "Protheus.ch"
+
+//Média do aluno. As avaliaçãoes não podem ser maiores que dez ou menores que zero
+User Function mediaAl()
+    local cNome := ''
+    local nAval1 := nAval2 := nMedia := 0
+
+    cNome := FWInputBox("Digite o nome do aluno")
+    nAval1 := Val(FWInputBox(i18n("Digite a nota da primeira avaliação do(a) #1", {cNome})))
+    nAval2 := Val(FWInputBox(i18n("Digite a nota da segunda avaliação do(a) #1", {cNome})))
+
+    While (nAval1 < 0 .or. nAval1 > 10)
+        nAval1 := Val(FWInputBox("Nota inválida. Por favor, digite uma nota válida"))
+    EndDo
+
+    While (nAval2 < 0 .or. nAval2 > 10)
+        nAval2 := Val(FWInputBox("Nota inválida. Por favor, digite uma nota válida"))
+    EndDo
+
+    nMedia := (nAval1 + nAval2) / 2
+    msginfo(i18n("A média do(a) #1 foi #2", {cNome, nMedia}))
+Return
