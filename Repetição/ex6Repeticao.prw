@@ -1,5 +1,6 @@
 #include "Protheus.ch"
 
+//Tabuada a partir do número digitado pelo usuário, não podendo ser maior que dez ou menor que zero
 user Function tabuada()
     local nCont := nBase := nNumero := 0
 
