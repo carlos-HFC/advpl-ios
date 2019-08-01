@@ -1,6 +1,6 @@
 #include "Protheus.ch"
 
-User Function array4
+User Function array4()
    local aArray := {}
 
    aAdd(aArray, {"Carlos", {10, 10, 10, 10}})
