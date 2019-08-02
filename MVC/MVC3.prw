@@ -16,11 +16,12 @@ Static Function ModelDef()
     local oStruZA1 := FWFormStruct(1, "ZA1")
     local oStruZA2 := FWFormStruct(1, "ZA2")
     local bPos := {|oModelField| VldMusica(oModelField)}
+    //local bValid := {|oModelGrid| ValidAutor(oModelGrid)}
 
     oModel:AddFields("ZA1MASTER",/* OWNER */, oStruZA1, /* bPre */, bPos)
-    oModel:AddGrid('ZA2GRID', 'ZA1MASTER', oStruZA2) 
+    oModel:AddGrid('ZA2GRID', 'ZA1MASTER', oStruZA2,, /*bValid*/) 
     oModel:SetRelation('ZA2GRID', { {'ZA2_FILIAL', "xFilial('ZA2')"},;
-    {"ZA2_MUSICA" , "ZA1_MUSICA"} }, ZA2 -> (IndexKey(1)))
+    {"ZA2_MUSICA" , "ZA1_MUSICA"} }, ZA2->(IndexKey(1)))
 
     oModel:GetModel('ZA1MASTER'):SetDescription('Dados da Música')
     oModel:GetModel('ZA2GRID'):SetDescription('Dados do Autor Da Música')
@@ -44,7 +45,7 @@ Static Function ViewDef()
     local oView := FWFormView():New()
     local oStructZA1 := FWFormStruct(2, "ZA1")
     Local oStructZA2 := FWFormStruct(2, "ZA2")
-
+    
     oView:SetModel(ModelDef())
 
     oView:AddField("ZA1_VIEW", oStructZA1, "ZA1MASTER")
@@ -61,3 +62,21 @@ Static Function ViewDef()
     oView:EnableTitleView('ZA1_VIEW')
     oView:EnableTitleView('ZA2_VIEW')
 Return oView
+
+/*Static Function ValidAutor(oModelGrid)
+    local lOK := .F.
+    local cCodAutor := oModelGrid:GetValue("ZA2_AUTOR")
+
+    DbSelectArea("ZA0")
+    ZA0->(DbSetOrder(1))
+
+    If ZA0->(DbSeek(xFilial("ZA0") + cCodAutor))
+        If EMPTY(!ZA0->ZA0_DTAFAL)
+            
+        Else
+            
+        EndIf
+    Else
+        
+    EndIf
+Return lOk*/

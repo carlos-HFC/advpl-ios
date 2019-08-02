@@ -16,7 +16,7 @@ Static Function ModelDef()
     local oStruZA0 := FWFormStruct(1, "ZA0")
     local bPos := {|oModelField| PosVldAutor(oModelField)}
 
-    oModel:AddFields("ZA0MASTER",/* OWNER */, oStruZA0, /* bPre */, bPos)
+    oModel:AddFields("ZA0MASTER", /* OWNER */, oStruZA0, /* bPre */, bPos)
 Return oModel
 
 Static Function PosVldAutor(oModelField)
@@ -26,7 +26,7 @@ Static Function PosVldAutor(oModelField)
 
     If dFalec > DATE()
         lOK := .F.
-        HELP(,, 'Data de Falecimento',, 'Data de falecimento não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Falecimento: " + dToC(dFalec)})
+        HELP(,, 'Data de Falecimento',, 'Data de falecimento não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Falecimento: 01/01/2010"})
     ElseIf 'RICARDO' $ UPPER(cNome) .OR. EMPTY(cNome)
         lOK := .F.
         HELP(,, 'Nome',, 'Nome em branco ou não pode conter o nome "Ricardo"',1,0,,,,,, {"Exemplo: " + CRLF + "José Silva" + CRLF + "Paulo Augusto" + CRLF + "João Santos"})

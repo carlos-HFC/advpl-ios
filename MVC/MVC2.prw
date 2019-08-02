@@ -16,7 +16,7 @@ Static Function ModelDef()
     local oStruZA1 := FWFormStruct(1, "ZA1")
     local bPos := {|oModelField| VldMusica(oModelField)}
 
-    oModel:AddFields("ZA1MASTER",/* OWNER */, oStruZA1, /* bPre */, bPos)
+    oModel:AddFields("ZA1MASTER", /* OWNER */, oStruZA1, /* bPre */, bPos)
 Return oModel
 
 Static Function VldMusica(oModelField)
@@ -26,7 +26,7 @@ Static Function VldMusica(oModelField)
 
     If dCriar > DATE()
         lOK := .F.
-        HELP(,, 'Data de Criação',, 'Data de criação não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Criação: " + dToC(dCriar)})
+        HELP(,, 'Data de Criação',, 'Data de criação não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Criação: 01/01/2010"})
     ElseIf EMPTY(cGenero)
         lOK := .F.
         HELP(,, 'Gênero',, 'Gênero não pode ser vazio',1,0,,,,,, {"Selecione um dos gêneros no campo de seleção"})
