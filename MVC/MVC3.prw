@@ -12,7 +12,7 @@ Static Function MenuDef()
 Return FWMVCMenu("MVC3")
 
 Static Function ModelDef()
-    local oModel := MPFormModel():New("COISA")
+    local oModel := MPFormModel():New("ZA1MODEL")
     local oStruZA1 := FWFormStruct(1, "ZA1")
     local oStruZA2 := FWFormStruct(1, "ZA2")
     local bPos := {|oModelField| VldMusica(oModelField)}
@@ -20,8 +20,7 @@ Static Function ModelDef()
 
     oModel:AddFields("ZA1MASTER",/* OWNER */, oStruZA1, /* bPre */, bPos)
     oModel:AddGrid('ZA2GRID', 'ZA1MASTER', oStruZA2,, /*bValid*/) 
-    oModel:SetRelation('ZA2GRID', { {'ZA2_FILIAL', "xFilial('ZA2')"},;
-    {"ZA2_MUSICA" , "ZA1_MUSICA"} }, ZA2->(IndexKey(1)))
+    oModel:SetRelation('ZA2GRID', { {'ZA2_FILIAL', "xFilial('ZA2')"}, {"ZA2_MUSICA" , "ZA1_MUSICA"} }, ZA2->(IndexKey(1)))
 
     oModel:GetModel('ZA1MASTER'):SetDescription('Dados da Música')
     oModel:GetModel('ZA2GRID'):SetDescription('Dados do Autor Da Música')
@@ -34,7 +33,7 @@ Static Function VldMusica(oModelField)
 
     If dCriar > DATE()
         lOK := .F.
-        HELP(,, 'Data de Criação',, 'Data de criação não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Criação: " + dToC(dCriar)})
+        HELP(,, 'Data de Criação',, 'Data de criação não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Criação: 01/01/2010"})
     ElseIf EMPTY(cGenero)
         lOK := .F.
         HELP(,, 'Gênero',, 'Gênero não pode ser vazio',1,0,,,,,, {"Selecione um dos gêneros no campo de seleção"})

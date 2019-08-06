@@ -12,7 +12,7 @@ Static Function MenuDef()
 Return FWMVCMenu("MVC2")
 
 Static Function ModelDef()
-    local oModel := MPFormModel():New("COISA")
+    local oModel := MPFormModel():New("ZA1MODEL")
     local oStruZA1 := FWFormStruct(1, "ZA1")
     local bPos := {|oModelField| VldMusica(oModelField)}
 
