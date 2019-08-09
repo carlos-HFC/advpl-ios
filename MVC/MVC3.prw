@@ -1,4 +1,5 @@
 #include "Protheus.ch"
+#include 'FWMVCDEF.ch'
 
 User Function autorMus()
     local oBrowse := FWMBrowse():New()
@@ -9,7 +10,36 @@ User Function autorMus()
 Return 
 
 Static Function MenuDef()
-Return FWMVCMenu("MVC3")
+Local aRotina :=  FWMVCMenu('autorMus') 
+
+ADD OPTION aRotina Title 'Player gráfico' Action 'u_player' OPERATION 2 ACCESS 0
+
+/*ADD OPTION aRotina Title 'Visualizar' Action 'VIEWDEF.IOS02' OPERATION 2 ACCESS 0
+ADD OPTION aRotina Title 'Incluir'    Action 'VIEWDEF.IOS02' OPERATION 3 ACCESS 0
+ADD OPTION aRotina Title 'Alterar'    Action 'VIEWDEF.IOS02' OPERATION 4 ACCESS 0
+ADD OPTION aRotina Title 'Excluir'    Action 'VIEWDEF.IOS02' OPERATION 5 ACCESS 0
+ADD OPTION aRotina Title 'Imprimir'   Action 'VIEWDEF.IOS02' OPERATION 8 ACCESS 0
+ADD OPTION aRotina Title 'Copiar'     Action 'VIEWDEF.IOS02' OPERATION 9 ACCESS 0
+*/
+Return aRotina
+
+user function player()
+local oDlg
+local aItems := {}
+Local nlist := 1
+
+local oList1, oMedia
+
+DEFINE MSDIALOG oDlg TITLE 'cTitulo' FROM 000,000 TO 800,800 PIXEL
+
+oList1 := TListBox():New(001,001,{|u|if(Pcount()>0,nList:=u,nList)},;
+                         {'Item 1','Item 2','Item 3','Item 4'},100,100,,oDlg,,,,.T.)
+
+oMedia := TMediaPlayer():New(50,100, 200, 200, oDlg, "", 70, .T.)
+ACTIVATE MSDIALOG oDlg CENTERED
+
+
+Return
 
 Static Function ModelDef()
     local oModel := MPFormModel():New("ZA1MODEL")
