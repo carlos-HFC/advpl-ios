@@ -23,13 +23,15 @@ Static Function VldMusica(oModelField)
     local lOK := .T.
     local dCriar := oModelField:GetValue("ZA1_DATA")
     local cGenero := oModelField:GetValue("ZA1_GENERO")
+    //local cNome := oModelField:GetValue("ZA1_TITULO")
+
 
     If dCriar > DATE()
         lOK := .F.
         HELP(,, 'Data de Criação',, 'Data de criação não pode ser maior que a data atual',1,0,,,,,, {"Exemplo: " + CRLF + "Data de Hoje: " + dToC(DATE()) + CRLF + "Data de Criação: 01/01/2010"})
     ElseIf EMPTY(cGenero)
         lOK := .F.
-        HELP(,, 'Gênero',, 'Gênero não pode ser vazio',1,0,,,,,, {"Selecione um dos gêneros no campo de seleção"})
+        HELP(,, 'Gênero',, 'Gênero não pode ser vazio',1,0,,,,,, {"Selecione um dos gêneros no campo de seleção."})
     EndIf    
 Return lOK
 

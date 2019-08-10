@@ -6,7 +6,7 @@
 Função principal, chamada pelo Menu.
 Deve abrir o browse de musicas e exibir ações para os registros
 
-@author Juliane Venteu
+@author Juliane Venteu 
 @since 07/08/2019
 /*/
 //-------------------------------------------------------------------
