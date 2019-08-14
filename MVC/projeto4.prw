@@ -45,6 +45,9 @@ Static Function ViewDef() //sempre static function
     oView:AddGrid('ZA4_VIEW', oStructZA4, 'ZA4DETAIL')
     oView:AddGrid('ZA5_VIEW', oStructZA5, 'ZA5DETAIL')
 
+    oStructZA5:RemoveField('ZA5_ALBUM')
+    oStructZA5:RemoveField('ZA5_MUSICA')
+
     oView:CreateHorizontalBox('BOXZA3', 40)
     oView:CreateHorizontalBox('BOXZA4', 30)
     oView:CreateHorizontalBox('BOXZA5', 30)

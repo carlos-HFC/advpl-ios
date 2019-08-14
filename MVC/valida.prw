@@ -25,18 +25,18 @@ Static function ModelDef() //sempre staticfunction
 
 
     oModel:SetRelation( 'ZA8DETAIL', { {'ZA8_FILIAL', "xFilial('ZA8')"}, {"ZA8_PLAY" , "ZA7_CODIGO"} }, ZA8->( IndexKey( 1 ) ) )
-     oModel:GetModel('ZA8DETAIL'):SetDescription('Musicas da playlist')
-     oModel:GetModel('ZA2DETAIL'):SetDescription('Pesquisar Interpretes')
-     oModel:GetModel( 'ZA8DETAIL' ):SetUniqueLine( { 'ZA8_MUSICA' } )
+    oModel:GetModel('ZA8DETAIL'):SetDescription('Musicas da playlist')
+    oModel:GetModel('ZA2DETAIL'):SetDescription('Pesquisar Interpretes')
+    oModel:GetModel( 'ZA8DETAIL' ):SetUniqueLine( { 'ZA8_MUSICA' } )
 
-oStruZA2:AddField('SELECT', ' ', 'SELECT', 'L', 1, 0, , , {}, .F.,FWBuildFeature( STRUCT_FEATURE_INIPAD, ".F.")) 
+    oStruZA2:AddField('SELECT', ' ', 'SELECT', 'L', 1, 0, , , {}, .F.,FWBuildFeature( STRUCT_FEATURE_INIPAD, ".F.")) 
 
-oModel:GetModel('ZA2DETAIL'):SetOnlyQuery()
+    oModel:GetModel('ZA2DETAIL'):SetOnlyQuery()
 
-//define que o grid nao é obrigatorio
-oModel:GetModel('ZA2DETAIL'):SetOptional()
+    //define que o grid nao é obrigatorio
+    oModel:GetModel('ZA2DETAIL'):SetOptional()
 
-oModel:SetActivate({|oModel| AfterActivate(oModel)})
+    oModel:SetActivate({|oModel| AfterActivate(oModel)})
 
 Return oModel
 
