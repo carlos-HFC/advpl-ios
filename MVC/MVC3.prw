@@ -1,5 +1,5 @@
 #include "Protheus.ch"
-#include 'FWMVCDEF.ch'
+//#include 'FWMVCDEF.ch'
 
 User Function autorMus()
     local oBrowse := FWMBrowse():New()
@@ -10,9 +10,7 @@ User Function autorMus()
 Return 
 
 Static Function MenuDef()
-Local aRotina :=  FWMVCMenu('autorMus') 
 
-ADD OPTION aRotina Title 'Player gráfico' Action 'u_player' OPERATION 2 ACCESS 0
 
 /*ADD OPTION aRotina Title 'Visualizar' Action 'VIEWDEF.IOS02' OPERATION 2 ACCESS 0
 ADD OPTION aRotina Title 'Incluir'    Action 'VIEWDEF.IOS02' OPERATION 3 ACCESS 0
@@ -21,7 +19,7 @@ ADD OPTION aRotina Title 'Excluir'    Action 'VIEWDEF.IOS02' OPERATION 5 ACCESS 
 ADD OPTION aRotina Title 'Imprimir'   Action 'VIEWDEF.IOS02' OPERATION 8 ACCESS 0
 ADD OPTION aRotina Title 'Copiar'     Action 'VIEWDEF.IOS02' OPERATION 9 ACCESS 0
 */
-Return aRotina
+Return FWMVCMenu('MVC3') 
 
 user function player()
 local oDlg
