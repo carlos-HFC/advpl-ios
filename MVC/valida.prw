@@ -70,7 +70,7 @@ Static Function ViewDef() //sempre static function
     oView:AddField('ZA7_VIEW', oStruct, 'ZA7MASTER')
     oView:AddGrid('ZA8_VIEW', oStructZA8, 'ZA8DETAIL')
     oView:AddGrid('ZA2_VIEW', oStructZA2, 'ZA2DETAIL')
-    oView:AddGrid('ZA4_VIEW', oStructZA4, 'ZA4DETAIL')
+    oView:AddGrid('ZA4_VIEW', oStructZA4, 'ZA4DETAIL') 
     
     oView:AddOtherObject("PANEL_SEL",{|oPanel,oOtherObject| criaButtonSel(oPanel,oOtherObject)})
     oView:AddOtherObject("PANEL_SEL2",{|oPanel,oOtherObject| criaBtn2(oPanel,oOtherObject)})
